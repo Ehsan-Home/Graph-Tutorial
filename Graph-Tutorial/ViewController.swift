@@ -16,6 +16,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        lineChart.xAxis.valueFormatter = self
     }
     
     override func viewDidLayoutSubviews() {
@@ -76,3 +77,11 @@ class ViewController: UIViewController {
 
 }
 
+
+extension ViewController:IAxisValueFormatter {
+    func stringForValue(_ value: Double, axis: AxisBase?) -> String {
+        return "11:30"
+    }
+    
+    
+}

@@ -16,6 +16,7 @@
 		B7BA91FF27BE054400CD8866 /* Graph_TutorialTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7BA91FE27BE054400CD8866 /* Graph_TutorialTests.swift */; };
 		B7BA920927BE054400CD8866 /* Graph_TutorialUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7BA920827BE054400CD8866 /* Graph_TutorialUITests.swift */; };
 		B7BA920B27BE054400CD8866 /* Graph_TutorialUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7BA920A27BE054400CD8866 /* Graph_TutorialUITestsLaunchTests.swift */; };
+		B7BA921927BE140700CD8866 /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = B7BA921827BE140700CD8866 /* Charts */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B7BA921927BE140700CD8866 /* Charts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,6 +145,9 @@
 			dependencies = (
 			);
 			name = "Graph-Tutorial";
+			packageProductDependencies = (
+				B7BA921827BE140700CD8866 /* Charts */,
+			);
 			productName = "Graph-Tutorial";
 			productReference = B7BA91E427BE054200CD8866 /* Graph-Tutorial.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +220,9 @@
 				Base,
 			);
 			mainGroup = B7BA91DB27BE054200CD8866;
+			packageReferences = (
+				B7BA921727BE140700CD8866 /* XCRemoteSwiftPackageReference "Charts" */,
+			);
 			productRefGroup = B7BA91E527BE054200CD8866 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -604,6 +612,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B7BA921727BE140700CD8866 /* XCRemoteSwiftPackageReference "Charts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/danielgindi/Charts.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B7BA921827BE140700CD8866 /* Charts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B7BA921727BE140700CD8866 /* XCRemoteSwiftPackageReference "Charts" */;
+			productName = Charts;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B7BA91DC27BE054200CD8866 /* Project object */;
 }

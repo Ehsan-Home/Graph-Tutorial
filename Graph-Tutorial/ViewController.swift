@@ -33,6 +33,7 @@ class ViewController: UIViewController {
         set.setColor(.systemRed)
         set.drawCirclesEnabled = false
         set.lineWidth = 3
+        set.mode = .cubicBezier
 //        set.colors = ChartColorTemplates.material()
 //        set.colors = ChartColorTemplates.
         
@@ -40,10 +41,12 @@ class ViewController: UIViewController {
         set2.setColor(.systemBlue)
         set2.drawCirclesEnabled = false
         set2.lineWidth = 3
+        set2.mode = .cubicBezier
         
         let data = LineChartData(dataSets: [set,set2])
         data.setDrawValues(false)
         
+        lineChart.xAxis.labelPosition = .bottom
         lineChart.data = data
         
     }

@@ -16,7 +16,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        lineChart.xAxis.valueFormatter = self
+//        lineChart.xAxis.valueFormatter = self
     }
     
     override func viewDidLayoutSubviews() {
@@ -35,6 +35,7 @@ class ViewController: UIViewController {
         set.drawCirclesEnabled = false
         set.lineWidth = 3
         set.mode = .cubicBezier
+        set.valueFont = .boldSystemFont(ofSize: 11)
 //        set.colors = ChartColorTemplates.material()
 //        set.colors = ChartColorTemplates.
         
@@ -43,11 +44,16 @@ class ViewController: UIViewController {
         set2.drawCirclesEnabled = false
         set2.lineWidth = 3
         set2.mode = .cubicBezier
+        set2.valueFont = .boldSystemFont(ofSize: 11)
         
         let data = LineChartData(dataSets: [set,set2])
-        data.setDrawValues(false)
+//        data.setDrawValues(false)
         
         lineChart.xAxis.labelPosition = .bottom
+        lineChart.leftAxis.labelFont = .boldSystemFont(ofSize: 12)
+        lineChart.xAxis.labelFont = .boldSystemFont(ofSize: 12)
+        lineChart.rightAxis.enabled = false
+        
         lineChart.data = data
         
     }
@@ -68,7 +74,7 @@ class ViewController: UIViewController {
             for minute in 1...6 {
                 let time = Double(hour) + (Double(minute) * 0.1)
                 let temp = Double.random(in: 20...55)
-                print("time", time , "temp", temp)
+//                print("time", time , "temp", temp)
                 humidity.append(ChartDataEntry(x: time, y: temp))
             }
         }
@@ -78,10 +84,10 @@ class ViewController: UIViewController {
 }
 
 
-extension ViewController:IAxisValueFormatter {
-    func stringForValue(_ value: Double, axis: AxisBase?) -> String {
-        return "11:30"
-    }
-    
-    
-}
+//extension ViewController:IAxisValueFormatter {
+//    func stringForValue(_ value: Double, axis: AxisBase?) -> String {
+//        return "11:30"
+//    }
+//
+//
+//}

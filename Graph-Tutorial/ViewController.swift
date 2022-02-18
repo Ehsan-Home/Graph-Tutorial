@@ -11,6 +11,8 @@ import Charts
 class ViewController: UIViewController {
     
     var lineChart = LineChartView()
+    var temperatures:[ChartDataEntry] = [ChartDataEntry()]
+    var humidity:[ChartDataEntry] = [ChartDataEntry]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,33 +26,48 @@ class ViewController: UIViewController {
         
         view.addSubview(lineChart)
         
-        var temperatures = [ChartDataEntry]()
-        var humidity = [ChartDataEntry]()
+        setupTempEntry()
+        setUpHumidEntry()
         
-        for x in 0..<50 {
-            temperatures.append(ChartDataEntry(x: Double(x), y: Double(x)))
-        }
-        
-        for x in 0...20 {
-            humidity.append(ChartDataEntry(x: Double(x + 10), y: Double(x)))
-        }
-        
-        let set = LineChartDataSet(entries: temperatures, label: "Temperature")
+        let set = LineChartDataSet(entries: temperatures, label: "Temperature (C)")
         set.setColor(.systemRed)
         set.drawCirclesEnabled = false
         set.lineWidth = 3
 //        set.colors = ChartColorTemplates.material()
 //        set.colors = ChartColorTemplates.
         
-        let set2 = LineChartDataSet(entries: humidity, label: "Humidity")
+        let set2 = LineChartDataSet(entries: humidity, label: "Humidity (%)")
         set2.setColor(.systemBlue)
         set2.drawCirclesEnabled = false
         set2.lineWidth = 3
         
         let data = LineChartData(dataSets: [set,set2])
+        data.setDrawValues(false)
         
         lineChart.data = data
         
+    }
+    
+    func setupTempEntry(){
+        for hour in 7...23 {
+            for minute in 1...6 {
+                let time = Double(hour) + (Double(minute) * 0.1)
+                let temp = Double.random(in: 25...35)
+                print("time", time , "temp", temp)
+                temperatures.append(ChartDataEntry(x: time, y: temp))
+            }
+        }
+    }
+    
+    func setUpHumidEntry() {
+        for hour in 7...23 {
+            for minute in 1...6 {
+                let time = Double(hour) + (Double(minute) * 0.1)
+                let temp = Double.random(in: 20...55)
+                print("time", time , "temp", temp)
+                humidity.append(ChartDataEntry(x: time, y: temp))
+            }
+        }
     }
 
 

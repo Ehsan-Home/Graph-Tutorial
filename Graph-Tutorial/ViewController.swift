@@ -38,12 +38,14 @@ class ViewController: UIViewController {
         let set = LineChartDataSet(entries: temperatures, label: "Temperature")
         set.setColor(.systemRed)
         set.drawCirclesEnabled = false
+        set.lineWidth = 3
 //        set.colors = ChartColorTemplates.material()
 //        set.colors = ChartColorTemplates.
         
         let set2 = LineChartDataSet(entries: humidity, label: "Humidity")
         set2.setColor(.systemBlue)
         set2.drawCirclesEnabled = false
+        set2.lineWidth = 3
         
         let data = LineChartData(dataSets: [set,set2])
         
